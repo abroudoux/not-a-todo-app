@@ -7,3 +7,7 @@ var Todos []types.Todo = []types.Todo{
 	{ ID: 2, Title: "Buy some bread", Completed: true },
 	{ ID: 3, Title: "Learn Go", Completed: false },
 }
+
+func CreateDatabase() {
+	// This function is not implemented yet
+}
