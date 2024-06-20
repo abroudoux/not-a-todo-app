@@ -21,9 +21,10 @@ func InitSever(port string) {
 
 	services.CreateUsersTable(db)
 	services.CreateTodosTable(db)
+	services.CreateAdminUser(db)
 
-	r.GET("/todos", services.GetTodos(db.Db))
-	r.GET("/users", services.GetUsers(db.DB))
+	r.GET("/todos", services.GetTodos(db))
+	r.GET("/users", services.GetUsers(db))
 
 	r.Run(":" + port)
 }

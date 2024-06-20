@@ -31,6 +31,18 @@ func CreateTodosTable(db *sql.DB) error {
 	return nil
 }
 
+func CreateAdminUser(db *sql.DB) error {
+	statement, err := db.Prepare("INSERT INTO users (id, username, password, is_admin) VALUES (1, user, password, true)")
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	statement.Exec("admin", "admin", true)
+
+	return nil
+}
+
 func GetUsers(db *sql.DB) ([]types.User, error) {
 	rows, err := db.Query("SELECT id, username, password, is_admin FROM users")
 
